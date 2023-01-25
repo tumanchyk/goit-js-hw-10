@@ -20,7 +20,7 @@ function makeMarkupItem(obj){
  </div>
  <p class="country-desk"><strong>Capital: </strong>${capital}</p>
  <p class="country-desk"><strong>Population: </strong>${population}</p>
- <p class="country-desk"><strong>Languages: </strong>${languages[0].name}</p>`)
+ <p class="country-desk"><strong>Languages: </strong>${languages.map(lang => lang.name ).join(', ')}</p>`)
 }
 
 export { makeMarkupList, makeMarkupItem }

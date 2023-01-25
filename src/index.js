@@ -13,7 +13,9 @@ inputSearch.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY) )
 function findCountry(e){
     e.preventDefault()
     const inputValue = e.target.value.trim()    
-    fetchCountries(inputValue).then(value =>{ 
+    fetchCountries(inputValue).then(value =>{
+        console.log(value)
+         
         if(!value.length) throw new Error(error)
         filterCountry(value)
     }).catch(onError)

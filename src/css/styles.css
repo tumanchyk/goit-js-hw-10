@@ -10,11 +10,43 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  font-size: 22px;
 }
-
+ul,
+p,
+h1 {
+  margin: 0;
+}
+li {
+  list-style: none;
+}
 #search-box {
   font: inherit;
   padding: 8px;
-  max-width: 320px;
+  width: 300px;
   margin-bottom: 16px;
+}
+.country-list {
+  padding-left: 10;
+}
+.country-item {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+.country-flag {
+  display: block;
+  height: 30px;
+  margin-right: 10px;
+}
+.main-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+.country-desk {
+  margin-bottom: 15px;
 }

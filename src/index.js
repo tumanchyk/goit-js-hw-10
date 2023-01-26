@@ -11,8 +11,12 @@ const DEBOUNCE_DELAY = 300;
 inputSearch.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY) )
 
 function findCountry(e){
-    e.preventDefault()
-    const inputValue = e.target.value.trim()    
+    const inputValue = e.target.value.trim() 
+    if(!inputValue){
+        cleanSpace()
+        return
+    } 
+    
     fetchCountries(inputValue).then(value =>{
         console.log(value)
          

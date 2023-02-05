@@ -24,4 +24,3 @@ function makeMarkupItem(obj){
 }
 
 export { makeMarkupList, makeMarkupItem }
-

@@ -10,23 +10,20 @@ const inputSearch = document.getElementById('search-box')
 const DEBOUNCE_DELAY = 300;
 inputSearch.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY) )
 
-function findCountry(e){
-    const inputValue = e.target.value.trim() 
-    if(!inputValue){
-        cleanSpace()
-        return
-    } 
-    
-    fetchCountries(inputValue).then(value =>{
-        console.log(value)
-         
-        if(!value.length) throw new Error(error)
-        filterCountry(value)
-    }).catch(onError)
+async function findCountry(e){
+  const inputValue = e.target.value.trim() 
+  if(!inputValue){
+      cleanSpace()
+      return
+  } 
+  try{
+      const dataCountries = await fetchCountries(inputValue);
+      if(!dataCountries.length) throw new Error('error');
+      filterCountry(dataCountries)
+  } catch{
+      onError()
+  }
 }
-
-
-
 
 function filterCountry(obj){
     const n = obj.length
@@ -48,6 +45,7 @@ function cleanSpace(){
     countryInfoEl.innerHTML = ''
     countryListEl.innerHTML = ''
 }
+ 
 function onError(){
     cleanSpace()
     Notify.failure('Oops, there is no country with that name')
